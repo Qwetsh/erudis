@@ -2,6 +2,7 @@ import { usePlayerStore } from './store/use-player-store';
 import { JoinScreen } from './features/join/JoinScreen';
 import { CharacterSelectScreen } from './features/character-select/CharacterSelectScreen';
 import { WaitingScreen } from './features/WaitingScreen';
+import { PlayerGameScreen } from './features/game/PlayerGameScreen';
 
 function App() {
   const gameId = usePlayerStore((s) => s.gameId);
@@ -18,13 +19,9 @@ function App() {
     return <CharacterSelectScreen />;
   }
 
-  // Partie en cours → placeholder
+  // Partie en cours
   if (phase === 'playing') {
-    return (
-      <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
-        <h1 className="text-2xl font-bold">Partie en cours...</h1>
-      </div>
-    );
+    return <PlayerGameScreen />;
   }
 
   // En attente du lancement
