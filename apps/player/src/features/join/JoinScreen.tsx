@@ -2,8 +2,13 @@ import { useState } from 'react';
 import { joinGame, type GamePhase } from '@erudis/shared';
 import { usePlayerStore } from '../../store/use-player-store';
 
+function getCodeFromUrl(): string {
+  const params = new URLSearchParams(window.location.search);
+  return (params.get('code') ?? '').toUpperCase();
+}
+
 export function JoinScreen() {
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState(getCodeFromUrl);
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
