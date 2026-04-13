@@ -3,7 +3,10 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
+const isGHPages = process.env.GITHUB_ACTIONS === 'true';
+
 export default defineConfig({
+  base: isGHPages ? '/erudis/player/' : '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
