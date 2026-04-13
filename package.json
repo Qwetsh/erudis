@@ -1,0 +1,20 @@
+{
+  "name": "erudis",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:board": "pnpm --filter @erudis/board dev",
+    "dev:player": "pnpm --filter @erudis/player dev",
+    "dev": "pnpm run --parallel dev:board dev:player",
+    "build": "pnpm run --parallel build:board build:player",
+    "build:board": "pnpm --filter @erudis/board build",
+    "build:player": "pnpm --filter @erudis/player build",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "devDependencies": {
+    "vitest": "^4.1.4"
+  }
+}
